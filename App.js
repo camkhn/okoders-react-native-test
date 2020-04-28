@@ -27,8 +27,8 @@ function HomeScreen({navigation}) {
       fetch('https://hn.algolia.com/api/v1/search_by_date?tags=story&page='+pageNumber)
        .then((response) => response.json())
        .then((json) => {
-           setData(data.concat(json.hits))
-           setOldData(data.concat(json.hits));
+           setData(oldData.concat(json.hits))
+           setOldData(oldData.concat(json.hits));
            console.log('data') 
            console.log(data) 
        })
@@ -244,6 +244,7 @@ function sortCreatedAtColumn(ascending){
     
   />
 </DataTable>
+<View style={{height:50,marginTop:100}}></View>
 </ScrollView>
 </View>:
 <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
